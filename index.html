@@ -88,47 +88,14 @@
     }
     </script>
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CSS (local build — purge, 19KB vs CDN 407KB) -->
+  <link rel="stylesheet" href="tailwind.css">
   <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              black: '#070709',
-              dark: '#0f0f13',
-              card: '#16161d',
-              border: '#2a2a38',
-              goldLight: '#fcf6ba',
-              gold: '#d4af37',
-              goldDark: '#aa771c',
-              silver: '#e2e8f0',
-              silverDark: '#94a3b8'
-            }
-          },
-          fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
-          animation: {
-            'marquee': 'marquee 30s linear infinite',
-            'float': 'float 6s ease-in-out infinite',
-            'fade-up': 'fadeUp .7s ease-out forwards'
-          },
-          keyframes: {
-            marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
-            float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-12px)' } },
-            fadeUp: { '0%': { opacity: '0', transform: 'translateY(24px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
-          }
-        }
-      }
-    }
-  </script>
 
   <style>
     .gold-gradient-text {
@@ -162,6 +129,9 @@
     .card-lift { transition: all .3s ease; }
     .card-lift:hover { transform: translateY(-6px); border-color: rgba(212,175,55,.6); }
     .marquee-track { animation: marquee 30s linear infinite; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    @keyframes fadeUp { 0% { opacity: 0; transform: translateY(24px); } 100% { opacity: 1; transform: translateY(0); } }
     .testi-dot.active { background: #d4af37; }
     html { scroll-padding-top: 90px; }
   </style>
